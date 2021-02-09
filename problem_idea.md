@@ -24,3 +24,41 @@ Analyze the network traffic, see if personal data is in there
     
         * For NLP, there are publicly available models that will make this relatively easy.
 
+    * Possibly check if URL is being used to steal data
+
+
+
+## Questions from Professor Yang
+Real-time or in the background?
+* Data that has to be stolen real-time:
+    * Location data
+    * GPS location
+* Data that can be stolen at any time (in background processes):
+    * IP address
+    * Type of device
+    * Browsing and search history
+    * Content of messages exchanged with others on the app
+    * Phone and social-network contacts
+    * Age
+    * Phone number
+* Data that only needs to be stolen once (or very rarely):
+    * Type of device
+    * Age
+    * Phone number
+
+
+
+Where specifically would ML be good? Is it a ML problem or is it a protocol issue?
+* ML useful for:
+    * Determining which data to pay attention to:
+        * Ignore:
+            * Video data
+            * Messaging data
+            * Other content data
+        * Pay attention to:
+            * Anomalies that contain private information
+
+    * Anomalous internet traffic that could be running in the background
+
+    * NLP for reading through the terms and conditions
+
