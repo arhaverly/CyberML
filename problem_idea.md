@@ -14,21 +14,16 @@ Analyze the network traffic, see if personal data is in there
 * Phone number
 
 
-## Feasibility
-* There is a clear path to:
-    * Gathering the data: download known apps that steal data and recording their traffic. For the NLP side of things, the terms and conditions legally have to be publicly available.
-    
-    * Examining the data: It will not be encrypted if I perform a network capture and it will (probably) be relatively easy to classify the data for the model by hand
-    
-    * Making a model: This is a classification model. I will have to look more into which model would best suit my purposes, but this should not be incredibly difficult
-    
-        * For NLP, there are publicly available models that will make this relatively easy.
 
-    * Possibly check if URL is being used to steal data
+What are the key things I want to extract?
+How does a new contract compare to the big 5?
 
 
 
-## Questions from Professor Yang
+
+## Archive
+
+### Questions from Professor Yang
 Real-time or in the background?
 * Data that has to be stolen real-time:
     * Location data
@@ -47,7 +42,6 @@ Real-time or in the background?
     * Phone number
 
 
-
 Where specifically would ML be good? Is it a ML problem or is it a protocol issue?
 * ML useful for:
     * Determining which data to pay attention to:
@@ -61,4 +55,23 @@ Where specifically would ML be good? Is it a ML problem or is it a protocol issu
     * Anomalous internet traffic that could be running in the background
 
     * NLP for reading through the terms and conditions
+
+### Feasibility -- Not feasible. It is compressed.
+* There is a clear path to:
+    * Gathering the data: download known apps that steal data and recording their traffic. For the NLP side of things, the terms and conditions legally have to be publicly available.
+    
+    * Examining the data: It will not be encrypted if I perform a network capture and it will (probably) be relatively easy to classify the data for the model by hand
+    
+    * Making a model: This is a classification model. I will have to look more into which model would best suit my purposes, but this should not be incredibly difficult
+    
+        * For NLP, there are publicly available models that will make this relatively easy.
+
+    * Possibly check if URL is being used to steal data
+
+
+
+
+
+
+
 
