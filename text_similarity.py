@@ -84,52 +84,21 @@ def tf_idf_vectorization(directory, vectors):
 
     documents = [' '.join(read_and_clean(f)) for i, f in document_ids]
     tfidf = TfidfVectorizer().fit_transform(documents)
-    print(type(tfidf))
-    print(tfidf.toarray())
-    pairwise_similarity = tfidf*tfidf.T
-    heatmap_array = pairwise_similarity.toarray()
-    # print(heatmap_array)
-    sns.heatmap(heatmap_array)
+    # print(type(tfidf))
+    # print(tfidf.toarray())
 
+    # # Using cosine similarity
+    # pairwise_similarity = tfidf*tfidf.T
+    # heatmap_array = pairwise_similarity.toarray()
+    # # print(heatmap_array)
+    # sns.heatmap(heatmap_array)
 
-
-    # plt.savefig('tf_idf_heatmap.png')
-    # plt.show()
-
-
-    id_heatmap_array = []
-    # associate ids with rankings
-    for array in heatmap_array:
-        new_array = []
-        for i, sim in enumerate(array):
-            new_array.append((document_ids[i][0], sim))
-        # print(new_array)
-        id_heatmap_array.append(new_array)
-
-
-
-    # sort (descending) while keeping this ID in track
-    sorted_arrays = []
-    for array in id_heatmap_array:
-        # print(array[0])
-        sorted_array = sorted(array, key=lambda x: x[1], reverse=True)
-        # print(sorted_array)
-        sorted_arrays.append(sorted_array)
-
-
-    stripped_arrays = []
-    for sorted_array in sorted_arrays:
-        stripped = []
-        for arr in sorted_array:
-            stripped.append(arr[0])
-
-        stripped_arrays.append(stripped)
-
-    # print(stripped_arrays)
-
-    # add this ID arrangement to the vector
     for i, vector in enumerate(vectors):
-        vectors[i] = vector + stripped_arrays[i]
+        # print(len(vector))
+        # print(len(tfidf[i].toarray()[0]))
+        vectors[i] = np.union1d(np.array(vector), np.array(tfidf[i].toarray()[0]))
+        print(len(vectors[i]))
+
 
 
 
@@ -213,7 +182,7 @@ def vectorize_directory(directory):
 
 
     tf_idf_vectorization(directory, vectors)
-    print(vectors)
+    # print(vectors)
 
     return filenames, vectors
 
