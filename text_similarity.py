@@ -38,6 +38,8 @@ from nltk.stem import WordNetLemmatizer
 from nltk.util import bigrams, trigrams, ngrams
 
 from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.feature_extraction import text
+
 
 import os
 import seaborn as sns
@@ -83,7 +85,7 @@ def tf_idf_vectorization(directory, vectors):
 
 
     documents = [' '.join(read_and_clean(f)) for i, f in document_ids]
-    tfidf = TfidfVectorizer().fit_transform(documents)
+    tfidf = TfidfVectorizer(stop_words=text.ENGLISH_STOP_WORDS, max_features=30).fit_transform(documents)
     # print(type(tfidf))
     # print(tfidf.toarray())
 
@@ -96,8 +98,38 @@ def tf_idf_vectorization(directory, vectors):
     for i, vector in enumerate(vectors):
         # print(len(vector))
         # print(len(tfidf[i].toarray()[0]))
-        vectors[i] = np.union1d(np.array(vector), np.array(tfidf[i].toarray()[0]))
-        print(len(vectors[i]))
+        # print(len(np.array(tfidf[i].toarray()[0])))
+        # print(np.array(tfidf[i].toarray()[0]))
+        # # print(np.array(tfidf[i].toarray()[0][-30:]))
+        # print()
+        # if len(vectors[i]) > 30:
+        #     pass
+        #     # print(vectors[i][-30:])
+        # else:
+
+        #     # tmp = np.union1d(np.zeros(30-len(vectors[i])), vectors[i])
+        #     # padding = print(np.zeros(30-len(vectors[i])))
+        #     # union = np.union1d(padding, vectors[i])
+        #     # print(union)
+
+        #     padded_array = []
+        #     for _ in range(30-len(vectors[i])):
+        #         padded_array.append(0)
+        #     for item in vectors[i]:
+        #         padded_array.append(item)
+
+        #     print(padded_array)
+        #     print(len(padded_array))
+            # vectors
+
+            # vectors[i] = tmp
+            # print(vectors[i])
+
+        tf_idf_vector = np.array(tfidf[i].toarray()[0])
+        for tf in tf_idf_vector:
+            vectors[i].append(tf)
+
+        # print(len(vectors[i]))
 
 
 
