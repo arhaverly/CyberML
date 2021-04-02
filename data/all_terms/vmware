@@ -1,0 +1,281 @@
+Updated as of 13 September 2019
+VMware Technical Support and Subscription Services (“SnS”) Terms and Conditions
+(For On-Premise Software Products)
+VMware, Inc., a Delaware corporation, or VMware International Unlimited Company, a company organized under the laws of Ireland, as
+applicable (“VMware”), will provide Technical Support and Subscription Services (“Services”) as specified in these Terms and Conditions (“SnS
+Terms”) to the customer identified in an Order (“Customer”), pursuant to these SnS Terms and the Data Processing Addendum (which is incorporated
+into these SnS Terms by this reference), and as set forth at the VMware Support Services Website, http://www.vmware.com/support/services.html.
+The VMware entity, effective date, Software, and Services level will be as set forth on the applicable enterprise license agreement, SnS order form,
+Customer’s purchase order, or, if Customer has purchased support on a per-incident basis, the registration form completed by Customer for that
+purchase (each, an “Order”). Any terms used but not defined in these SnS Terms have the meanings set forth in the VMware End User License
+Agreement (“EULA”).
+1.
+Definitions. For purposes of these SnS Terms, the following definitions apply:
+1.1
+“Content” means data provided by Customer to VMware to address a Technical Support issue. Content does not include customer account
+or relationship data that VMware uses in connection with a Technical Support request, or data collected by VMware to verify the support entitlement
+or to facilitate any communications.
+1.2
+“Data Processing Addendum” means the then-current version of the VMware Data Processing Addendum located at
+https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/downloads/eula/vmware-data-processing-addendum.pdf.
+1.3
+“Error” means a failure in the Software to materially conform to the specifications described in the applicable product documentation
+(“Documentation”).
+1.4
+“Modified Code” means any modification, addition and/or development of code scripts deviating from the predefined product code
+tree(s)/modules developed by VMware for production deployment or use. Modified Code excludes customizable Software options for which VMware
+offers Services.
+1.5
+“Services Fees” means the fees for Services specified in a VMware or reseller invoice.
+1.6
+“Services Period” means the period for which Customer has purchased the Services and any subsequent renewal periods, and commences:
+(a) for Software Licenses for which Services are mandatory, on the date the applicable Software License Key(s) are made available for download, and
+(b) for Software Licenses for which Services are optional, on the date of purchase of the Services.
+1.7
+“Severity” is a measure of the relative impact an Error has on the use of the Software, as assigned by Customer when opening a support
+request. The following Severity levels apply to all Software:
+(a)
+“Severity One” means Customer’s production server or other mission critical system(s) are down and no workaround is
+immediately available, and: (i) all or a substantial portion of Customer’s mission critical data is at a significant risk of loss or corruption; or (ii) Customer
+has had a substantial loss of service; or (iii) Customer’s business operations have been severely disrupted.
+(b)
+“Severity Two” means that major functionality is severely impaired such that: (i) operations can continue in a restricted fashion,
+although long-term productivity might be adversely affected; or (ii) a major milestone is at risk; or (iii) ongoing and incremental installations are affected;
+or (iv) only a temporary workaround is available.
+(c)
+“Severity Three” means a partial, non-critical loss of functionality of the Software such that: (i) the operation of some component(s)
+is impaired but allows the user to continue using the Software; or (ii) initial installation milestones are at minimal risk.
+(d)
+“Severity Four” means general usage questions and cosmetic issues, including errors in the Documentation.
+1.8
+“Software” means software on the VMware price list, and all components shipped with the Software, including Open Source Software
+components.
+1.9
+“Subscription Services” means any Maintenance Releases, Minor Releases, and Major Releases to the Software and related
+Documentation that VMware provides to Customer.
+(a)
+“Maintenance Release” or “Update” means a generally available release of the Software that typically provides maintenance
+corrections only or high severity bug fixes, designated by means of a change in the digit to the right of the second decimal point (e.g. Software 5.0 >>
+Software 5.0.1), or for certain Software by a change in the digit of the Update number (e.g., Software 5.0 Update 1).
+(b)
+“Minor Release” means a generally available release of the Software that: (i) introduces a limited number of new features,
+functionality, and minor enhancements; (ii) fixes for high severity and high priority bugs identified in the current release; and (iii) is designated by a
+change in the digit to the right of the decimal point (e.g., Software 5.0>>Software 5.1).
+Support and Subscription Terms and Conditions
+05 September 2019
+Page 1 of 5(c)
+“Major Release” also known as an “Upgrade” means a generally available release of the Software that: (i) contains functional
+enhancements and extensions; (ii) fixes for high severity and high priority bugs; and (iii) is designated by VMware by a change in the digit to the left of
+the first decimal point (e.g., Software 5.0 >> Software 6.0).
+1.10
+“Technical Support” means telephone or web-based technical assistance by VMware to Customer’s technical contact(s) regarding
+installation of the Software, Errors, and technical product problems, at the corresponding Services level purchased by Customer.
+1.11
+“Third Party Products” means any software or hardware that is manufactured by a party other than VMware and is either (i) not delivered
+with the Software, or (ii) not incorporated into the Software.
+2.
+Service Terms.
+2.1
+Provision of Services. VMware will provide Services to Customer during the Services Period at the Services level purchased. Customer’s
+use of a Subscription Services release will be subject to the terms of the VMware Product Guide posted at https://www.vmware.com/download/eula
+on the date Customer first installs that release.
+2.2
+End of Availability. VMware may, at its discretion, decide to retire any Software and/or Services offering from time to time (“End of
+Availability”). VMware will notify affected customers, and will post information regarding End of Availability and the timeline for discontinuing the
+affected Services at https://www.vmware.com/support/policies/lifecycle.html. VMware has no obligation to provide Services for any Software after the
+End of Availability date published in the life cycle policy for that Software.
+2.3
+Purchase Requirements.
+(a)
+Except as otherwise provided, Customer must purchase Services for the initial Services Period for the most current, generally
+available version of the Software.
+(b)
+Customer must purchase and/or renew Services at the same Services level for all licenses for a particular Software product
+installed in a given environment, such as Test, Development, QA, or Production (e.g., a customer cannot purchase Production level support for only
+one license of vSphere in its lab and purchase Basic level support for the other vSphere licenses in that environment).
+(c)
+Except as otherwise provided in the applicable price list, the minimum term for any Services offering is one (1) year.
+(d)
+Upon renewal of Services, these SnS Terms will automatically update to the then-current Services terms and conditions set forth
+at https://www.vmware.com/files/pdf/support/support_terms_conditions.pdf.
+2.4
+Exclusions.
+(a)
+Services do not cover problems caused by the following:
+(i) unusual external physical factors such as inclement weather conditions that cause electrical or electromagnetic stress, or a
+failure of electric power, air conditioning or humidity control; neglect; misuse; operation of the Software with other media not in accordance
+with manufacturer’s specifications; or causes other than ordinary use;
+(ii) use of the Software that deviates from any operating procedures as specified in the Documentation;
+(iii) Third Party Products, other than the interface of the Software with the Third Party Products;
+(iv) Modified Code;
+(v) issues relating to VMware cloud service offerings;
+(vi) any customized deliverables created by VMware, VMware partners, or third party service providers;
+(vii) use of the Software with unsupported tools (e.g., Java Development Kit (JDK); Java Runtime Environment (JRE)), APIs,
+interfaces or data formats other than those included with the Software and supported as set forth in the Documentation. Customer may
+request assistance from VMware for such problems, for an additional fee.
+(b)
+If VMware suspects that a reported problem may be related to Modified Code, VMware, may, in its sole discretion,
+(i) request that the Modified Code be removed, and/or
+(ii) inform Customer that additional assistance may be obtained by Customer from various product discussion forums or by
+engaging VMware’s consulting services group for an additional fee.
+2.5
+Customer Responsibilities. VMware’s obligation to provide the Services is subject to the following:
+(a)
+Customer agrees to receive communications from VMware via email, telephone, and other formats, regarding Services (such as
+communications concerning support coverage, Errors or other technical issues, availability of new releases of the Software, and training options).
+Support and Subscription Terms and Conditions
+05 September 2019
+Page 2 of 5(b)
+Customer’s technical contact must cooperate with VMware to enable VMware to deliver the Services.
+(c)
+As between VMware and Customer, Customer is solely responsible for use of the Software by its personnel, and must properly
+train its personnel in the use of the Software.
+(d)
+Customer must promptly report to VMware all problems with the Software, and must implement all corrective procedures provided
+by VMware reasonably promptly after receipt of the corrective procedures.
+(e)
+Before contacting VMware for Technical Support, Customer must protect and back up the data and information stored on the
+systems on which the Software is used, and must confirm that the data and information is protected and backed up in accordance with any applicable
+Customer or regulatory requirements. VMware is not responsible for lost data or information in the event of Errors or other malfunction of the Software
+or the systems on which the Software is used.
+(f)
+Customer must have dedicated resources available to work 24x7 on Severity One Errors.
+3. Services Offerings and Services Fees.
+3.1 Services Fees.
+(a)
+Services Fees are payable on the effective date specified in the applicable Order or, in the case of a renewal Services Period, no
+later than the date of commencement of the renewal term. Services Fees are specified in the applicable price list and are non-refundable.
+(b)
+If Customer renews or adds a Services offering that has a minimum term of one (1) year, Customer may elect to make Services
+for all of its Software Licenses coterminous with the renewed or added Services. In that case, VMware will prorate the applicable Services Fees to
+extend the current Services Period to make it coterminous with the renewed or added Services.
+(c)
+For Software that is licensed on a perpetual basis, if Customer purchases Services after acquiring the Licenses, or had elected
+not to renew Services and later wishes to re-enroll in the Services, Customer must move to the then-current Major Release of the Software and must
+pay: (i) the applicable Services Fees for the current Services Period; (ii) the amount of Services Fees that would have been paid for the period of time
+that Customer was not enrolled in the Services, and (iii) a twenty percent (20%) reinstatement fee on the sum of the Services Fees in (i) and (ii).
+(d)
+If Customer purchases a License to upgrade up from one edition of the Software to another (e.g., VMware vSphere Standard to
+VMware vSphere Enterprise Plus), any unused portion of the Services Period on the original License will be converted and used to extend the Services
+Period for the new License. This paragraph (d) does not apply to customers who have purchased Services through an enterprise license agreement.
+3.2
+Advanced and Complimentary Services Offerings.
+(a)
+Certain advanced Services (e.g., Business Critical Support, Mission Critical Support, Premier Support, Premier Support for
+Healthcare, Telco, Financial, and Fed, and Mission Critical Support for Workspace ONE) require that Customer also purchase a base level of support.
+See the Services description at https://www.vmware.com/support/services.html.
+(b)
+VMware may, at its discretion, offer complimentary Services, including VMware Complimentary Update Services for certain
+Software,
+as
+more
+fully
+described
+on
+the
+VMware
+Technical
+Support
+Services
+website,
+at
+https://www.vmware.com/support/services/complimentary.html. “VMware Complimentary Update Services” means the provision of Maintenance
+Releases and Minor Releases to Customer, at no cost. This VMware Complimentary Update Service does not include providing any Major Releases.
+4.
+Payment, Warranty, Limitation of Liability, and Termination
+4.1
+Payment Terms. VMware will invoice Customer or Customer’s reseller for Services Fees promptly following Customer’s purchase. Payment
+is due within thirty (30) days of the date of the invoice. Services Fees are exclusive of any taxes, duties, or similar charges imposed by any government.
+Customer must pay or reimburse VMware for all federal, state, dominion, provincial, or local sales, use, personal property, excise, value added,
+withholding or other taxes, fees, or duties relating to the transactions contemplated by these SnS Terms (other than taxes on the net income of
+VMware). Amounts not paid on time are subject to a late charge equal to the lesser of one and one-half percent (1.5%) per month or the maximum
+amount allowed by applicable law. If payment of any Services Fee is delinquent, VMware may also suspend performance of all Services until such
+delinquency is corrected.
+4.2
+Limited Warranty. VMware warrants that the Services will be performed in a workmanlike manner and will conform to industry standards.
+Upon Customer providing VMware with a reasonably detailed written notice of the alleged nonconformance, VMware will use reasonable efforts to re-
+perform the Services. TO THE MAXIMUM EXTENT PERMITTED BY LAW, THIS WARRANTY IS GIVEN EXPRESSLY AND IN PLACE OF ALL
+OTHER WARRANTIES, STATUTORY, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. TO THE MAXIMUM EXTENT PERMITTED BY LAW,
+THIS WARRANTY IS CUSTOMER’S SOLE AND EXCLUSIVE REMEDY WITH RESPECT TO NONCONFORMANCE OF SERVICES.
+4.3
+Limitation of Liability. TO THE MAXIMUM EXTENT PERMITTED BY LAW, VMWARE WILL NOT BE LIABLE FOR ANY LOST PROFITS
+OR BUSINESS OPPORTUNITIES, LOSS OF USE, LOSS OF REVENUE, LOSS OF GOODWILL, BUSINESS INTERRUPTION, LOSS OF DATA, OR
+Support and Subscription Terms and Conditions
+05 September 2019
+Page 3 of 5ANY INDIRECT, SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGES, WHETHER BASED UPON CONTRACT, TORT, OR ANY OTHER
+LEGAL THEORY, ARISING FROM ITS PERFORMANCE OR NON-PERFORMANCE UNDER THESE SNS TERMS. BECAUSE SOME
+JURISDICTIONS DO NOT ALLOW THE EXCLUSION OR LIMITATION OF LIABILITY FOR CONSEQUENTIAL OR INCIDENTAL DAMAGES, THE
+PRECEDING LIMITATION MAY NOT APPLY TO CUSTOMER. VMWARE’S LIABILITY UNDER THESE SNS TERMS WILL NOT, IN ANY EVENT,
+EXCEED THE SERVICES FEES PAID BY CUSTOMER TO VMWARE FOR SERVICES DURING THE TWELVE (12) MONTHS IMMEDIATELY
+PRECEDING THE DATE OF THE EVENT MOST DIRECTLY GIVING RISE TO THE CLAIM.
+4.4
+Termination of Services. VMware may terminate all Services at any time if (a) Customer is in breach of its License restrictions or (b)
+Customer is in material breach of these SnS Terms.
+5.
+Customer Support Data.
+5.1
+Submission of Content. In connection with a Technical Support request, Customer may upload Content to VMware’s systems. That Content
+will vary depending on the product and the context of the Technical Support issue. Content may consist of: (a) detailed system information about the
+failure such as the name and state of the affected operating system, logs, Virtual Machine descriptions (not including the contents of virtual disks or
+snapshot files), system identifiers, IP addresses, and user identifiers; and (b) core dumps, which may contain a full record of the memory image at the
+time of the crash including CPU and memory information related to the failure, passwords, cryptographic keys, and/or application data, depending
+upon the technical state at the time of the failure. Customer is solely responsible for taking steps necessary to protect any sensitive or confidential
+information, or Personal Data, included in Content. Those steps may include Customer obfuscating or removing such information or, depending on the
+product, otherwise working with VMware at the time of submission to limit the disclosure of such information.
+5.2
+Restricted Content. Customer must not submit any Content to VMware that: (a) Customer does not have the right to provide to VMware;
+(b) constitutes information that is regulated by the Health Insurance Portability and Accountability Act, as amended and supplemented, and the
+regulations thereunder (collectively, “HIPAA”), or any similar federal, state, or local laws, rules, or regulations, unless Customer has signed a Business
+Associate Agreement (as defined by HIPAA) with VMware; (c) contains financial information of any individual; or (d) is regulated by law or regulation
+without complying with the applicable laws or regulations. If Customer submits any Content in contravention of this Section 5.2, then Customer is solely
+responsible for the consequences of that submission.
+5.3
+Personal Data. To the extent Customer provides Personal Data (as defined in the Data Processing Addendum) to VMware as part of the
+Content, VMware will process the Personal Data in accordance with the Data Processing Addendum.
+5.4
+Use of Content. VMware may review and analyze Content to address a Technical Support request. VMware may use the results of that
+review and analysis, in combination with (i) data VMware collects from Customer regarding Customer’s use of the Software (such as configuration,
+performance, and usage data) and (ii) information VMware maintains about the Customer’s account, to provide support to VMware customers, and to
+improve VMware products, services, and user experiences.
+5.5
+Disclosure of Content. If VMware is required by a subpoena, court order, agency action, or any other legal or regulatory requirement, to
+disclose any Content, VMware will provide Customer with notice and a copy of the demand, as soon as practicable, unless VMware is prohibited from
+doing so pursuant to applicable law or regulation. If Customer requests, VMware will, at Customer’s expense, take reasonable steps to contest and to
+limit the scope of any required disclosure.
+6. Miscellaneous.
+6.1 Transfer; Assignment. Customer may not assign or delegate these SnS Terms to any third party without VMware’s prior written consent.
+6.2
+Governing Law. These SnS Terms are governed by the laws of the State of California without regard to conflict of laws principles. Customer
+and VMware consent to the exclusive jurisdiction of the state and federal courts located in Santa Clara County, California for the adjudication of any
+disputes under these SnS Terms.
+6.3
+Entire Agreement. These SnS Terms, the Data Processing Addendum, the applicable Order, the EULA to the extent it applies, and the
+information on the VMware Support Services Website, together constitute the entire agreement of the parties with respect to provision of the Services
+by VMware to Customer, and supersedes all prior written or oral communications, understandings, and agreements.
+6.4
+Customer Forms. Except as expressly set forth in these SnS Terms, no terms of any purchase order or other business form that Customer
+may use will affect the obligations of the parties under these SnS Terms, and any purchase order or other business form which contains additional or
+conflicting terms is hereby rejected by VMware. Customer agrees that purchase orders do not have to be signed by Customer to be valid and
+enforceable.
+6.5
+Amendment and Waiver. Any amendment or waiver of the provisions of these SnS Terms must be in writing signed by both parties to be
+effective.
+6.6
+Severability. If any provision of these SnS Terms is found to be invalid or unenforceable, the remaining terms will continue to be valid and
+enforceable to the fullest extent permitted by law.
+Support and Subscription Terms and Conditions
+05 September 2019
+Page 4 of 56.7
+Language. The English language versions of these SnS Terms, the Technical Support guide found at https://www.vmware.com/
+files/pdf/support/tech_support_guide.pdf, and the policies at https://www.vmware.com/support/policies/index are the governing versions of such
+documents and policies; any translation into languages other than English is for convenience only.
+6.8
+Survival. Any provision of these SnS Terms that, by its nature and context is intended to survive, including provisions relation to payment of
+outstanding fees, confidentiality, warranties, and limitation of liability, will survive termination of these SnS Terms. The Data Processing Addendum will
+continue to be effective to the extent VMware continues to process Personal Data after termination of these SnS Terms.
+6.9
+Use of Third Parties. VMware may deliver the Services with the assistance of our affiliates or suppliers.
+Support and Subscription Terms and Conditions
+05 September 2019
+Page 5 of 5

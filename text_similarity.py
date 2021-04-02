@@ -27,7 +27,7 @@ Overall design:
 
 
 
-from sklearn.cluster import KMeans
+from sklearn.cluster import KMeans, SpectralClustering, AgglomerativeClustering
 import numpy as np
 
 from nltk.tokenize import word_tokenize
@@ -40,11 +40,21 @@ from nltk.util import bigrams, trigrams, ngrams
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.feature_extraction import text
 
+from sklearn.metrics import davies_bouldin_score, calinski_harabasz_score, silhouette_score
+
+import numpy as np
+
+from matplotlib import pyplot as plt
+from scipy.cluster.hierarchy import dendrogram
+from sklearn.datasets import load_iris
+from sklearn.cluster import AgglomerativeClustering
+
+
 
 import os
 import seaborn as sns
 import matplotlib.pyplot as plt
-
+from random import random
 
 
 
@@ -81,11 +91,25 @@ def data_counts(lemmatized):
 # TF-IDF is used to measure similarities between two documents. Can create a confusion matrix
 # Then rank most similar ToS to least similar ToS
 def tf_idf_vectorization(directory, vectors):
-    document_ids = [(i, os.path.join(directory, f)) for i, f in enumerate(os.listdir(directory)) if f.endswith('.txt')]
+    # print(text.ENGLISH_STOP_WORDS)
 
+    document_ids = [(i, os.path.join(directory, f)) for i, f in enumerate(os.listdir(directory))]
+    # print(document_ids)
+    # print(len(document_ids))
 
     documents = [' '.join(read_and_clean(f)) for i, f in document_ids]
-    tfidf = TfidfVectorizer(stop_words=text.ENGLISH_STOP_WORDS, max_features=30).fit_transform(documents)
+    tf = TfidfVectorizer(stop_words=text.ENGLISH_STOP_WORDS, max_features=30)
+
+    tfidf = tf.fit_transform(documents)
+
+    feature_names = tf.get_feature_names()
+
+    feature_index = tfidf[0,:].nonzero()[1]
+    tfidf_scores = zip(feature_index, [tfidf[0,x] for x in feature_index])
+
+    # for w, s in [(feature_names[i], s) for (i, s) in tfidf_scores]:
+    #     print(w + ',', end=' ')
+    # print('\n\n\n')
 
 
     for i, vector in enumerate(vectors):
@@ -96,13 +120,7 @@ def tf_idf_vectorization(directory, vectors):
 
 
 
-
-
-
-
 # vectorize words directly. embed two text portions of the same section and compare them
-
-
 
 
 
@@ -163,8 +181,7 @@ def vectorize(filename):
 def vectorize_directory(directory):
     vector_dictionary = {}
     for filename in os.listdir(directory):
-        if filename.endswith('.txt'):
-            vector_dictionary[filename] = vectorize(os.path.join(directory, filename))
+        vector_dictionary[filename] = vectorize(os.path.join(directory, filename))
 
     filenames = []
     vectors = []
@@ -182,15 +199,106 @@ def vectorize_directory(directory):
 
 
 
+def normalize_array(arr):
+    minimum = 10000000
+    maximum = -10000000
+    for elem in arr:
+        if elem < minimum:
+            minimum = elem
+        if elem > maximum:
+            maximum = elem
+
+    maximum -= minimum
+
+    for i in range(len(arr)):
+        arr[i] = (arr[i]-minimum) / maximum
+
 
 def cluster_terms(directory, n_clusters=2):
     filenames, vectors = vectorize_directory(directory)
 
-    kmeans = KMeans(n_clusters=n_clusters, random_state=0).fit(vectors)
-    print(kmeans.labels_)
+
+    n_clusters_range = range(2,100)
+    fig, axs = plt.subplots(2)
+    fig.suptitle('Different Clustering Algorithms with Validity Indices')
+
+
+    # KMeans
+    kmeans_validity_indices = {'Davies Bouldin Score': [],
+                        'Calinski Harabasz Score':[],
+                        'Silhouette Score':[],
+                        }
+
+    for n_clusters in n_clusters_range:
+        kmeans = KMeans(n_clusters=n_clusters, random_state=0).fit(vectors)
+        labels = kmeans.labels_
+
+        # the closer to zero, the better the clustering
+        kmeans_validity_indices['Davies Bouldin Score'].append(davies_bouldin_score(vectors, labels))
+        kmeans_validity_indices['Calinski Harabasz Score'].append(calinski_harabasz_score(vectors, labels))
+        kmeans_validity_indices['Silhouette Score'].append(silhouette_score(vectors, labels))
+
+
+
+    for key in kmeans_validity_indices.keys():
+        normalize_array(kmeans_validity_indices[key])
+
 
     for i in range(len(filenames)):
-        print(filenames[i], ':', kmeans.labels_[i])
+        # print(filenames[i], ':', kmeans.labels_[i])
+        pass
+
+    for key in kmeans_validity_indices.keys():
+        axs[0].plot(n_clusters_range, kmeans_validity_indices[key], label=key)
+
+    axs[0].set_title('KMeans')
+
+
+    # Spectral Clustering
+    spectral_validity_indices = {'Davies Bouldin Score': [],
+                        'Calinski Harabasz Score':[],
+                        'Silhouette Score':[],
+                        }
+
+    for n_clusters in n_clusters_range:
+        spectral = SpectralClustering(n_clusters=n_clusters, random_state=0, assign_labels='discretize').fit(vectors)
+        labels = spectral.labels_
+
+        # the closer to zero, the better the clustering
+        spectral_validity_indices['Davies Bouldin Score'].append(davies_bouldin_score(vectors, labels))
+        spectral_validity_indices['Calinski Harabasz Score'].append(calinski_harabasz_score(vectors, labels))
+        spectral_validity_indices['Silhouette Score'].append(silhouette_score(vectors, labels))
+
+
+
+    for key in spectral_validity_indices.keys():
+        normalize_array(spectral_validity_indices[key])
+
+
+    kmeans = KMeans(n_clusters=50, random_state=0).fit(vectors)
+    labels = kmeans.labels_
+    for i in range(len(filenames)):
+        print(filenames[i], ':', kmeans.labels_[i], end=', ')
+        pass
+
+    for key in spectral_validity_indices.keys():
+        axs[1].plot(n_clusters_range, spectral_validity_indices[key], label=key)
+
+
+    axs[1].set_title('Spectral Clustering')
+
+
+
+
+    plt.xlabel('Number of Clusters')
+    plt.ylabel('Validity Index Score')
+
+    axs[0].legend()
+    axs[1].legend()
+
+    plt.savefig('validity_indices.png')
+    plt.show()
+
 
     return filenames, vectors
 
@@ -369,11 +477,195 @@ def rank_words(nearby_words, document_word_freqs):
 
 
 
+def compare_new_to_known_tos(new, known, directory):
+    filenames, vectors = vectorize_directory(directory)
+    new_vector = vectors[filenames.index(new)]
+    # print('new:', new_vector)
+
+    known_vectors = [vectors[filenames.index(os.path.basename(tos))] for tos in known]
+    # print('known:', known_vectors)
+
+    print('Cosine Similarity')
+    cosine_similarities = [np.sum(np.multiply(np.array(new_vector), np.array(known_vector))) for known_vector in known_vectors]
+    # print('cosine_similarities', cosine_similarities)
+
+    name_with_similarity = [(known[i], cosine_similarities[i]) for i in range(len(known))]
+
+    # print(name_with_similarity)
+
+    name_with_similarity.sort(key=lambda x: x[1], reverse=True)
+
+    print(name_with_similarity, '\n')
+
+
+
+    print('K-Means')
+    kmeans = KMeans(n_clusters=len(known), random_state=0).fit(known_vectors)
+    # print(kmeans.predict([new_vector]))
+    print(known[list(kmeans.labels_).index(kmeans.predict([new_vector])[0])])
+
+
+    print('Spectral Clustering')
+    spectral = SpectralClustering(n_clusters=len(known), random_state=0, assign_labels='discretize').fit_predict(known_vectors, new_vector)
+    print(spectral)
+    # print(kmeans.predict([new_vector]))
+    print(known[list(spectral.labels_).index(spectral.fit_predict([new_vector])[0])])
+
+
+
+
+
+def plot_dendrogram(model, **kwargs):
+    # Create linkage matrix and then plot the dendrogram
+
+    # create the counts of samples under each node
+    counts = np.zeros(model.children_.shape[0])
+    n_samples = len(model.labels_)
+    for i, merge in enumerate(model.children_):
+        current_count = 0
+        for child_idx in merge:
+            if child_idx < n_samples:
+                current_count += 1  # leaf node
+            else:
+                current_count += counts[child_idx - n_samples]
+        counts[i] = current_count
+
+    linkage_matrix = np.column_stack([model.children_, model.distances_,
+                                      counts]).astype(float)
+
+    print(counts)
+
+    # Plot the corresponding dendrogram
+    dendrogram(linkage_matrix, **kwargs)
+
+
+
+
+def hierarchical_cluster(filenames, vectors):
+    model = AgglomerativeClustering(distance_threshold=0, n_clusters=None).fit(vectors)
+
+    plot_dendrogram(model, truncate_mode='level', p=10)
+    plt.show()
+
+
+
+
 if __name__ == '__main__':
     # 1 - Create feature vector, cluster
     # vectorize('data/facebook_terms_and_data_policy.txt')
     # vectorize_directory('data')
-    cluster_terms('data', n_clusters=5)
+    # cluster_terms('data/all_terms', n_clusters=5)
+
+
+    # known_tos = [os.path.join('data/all_terms', tos) for tos in ['activision', 'adobe.txt', 'adp', 'android', 'audible', 'babbel', 'bumble']]
+    # new_tos = 'uber'
+    # compare_new_to_known_tos(new_tos, known_tos, 'data/all_terms')
+
+
+
+
+
+
+
+
+
+
+
+    ############################## Preliminary Results ##############################
+
+    # Break down this hypothesis: A clustering algorithm can identify which known ToS is most similar to a novel ToS.
+    # Hypothesis #1: A clustering algorithm can be used to identify which known ToS is most similar to a novel ToS.
+    # Hypothesis #2: A vector similarity measure can be used to compare the similarity of one ToS to another ToS.
+    # Hypothesis #3: A hierarchical clustering algorithm can be used to visually examine the similarity between many ToS.
+
+
+    filenames, vectors = vectorize_directory('data/all_terms')
+
+
+
+
+    print('Hierarchical Cluster')
+    # perform the hierarchical cluster with plotting
+    hierarchical_cluster(filenames, vectors)
+
+
+
+
+
+
+
+
+
+
+    print('\n\n\nSimilarity indices')
+    # how close are they?
+
+
+    # how are they similar? what features?
+    # what component leads the most to this closeness
+        # whjich of the top words score leads the most to similarity
+
+
+
+
+
+    print('\n\n\nHow well can clustering describe similarity?')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     # tf_idf_vectorization('data', [[] for _ in range(100)])
 
